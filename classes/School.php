@@ -18,16 +18,13 @@ class School extends DatabaseObject {
         $sql = 'INSERT INTO schools VALUE(NULL, ?)';
         $query = $this->db->prepare($sql);
         $query->execute([$name]);
-
-        if($query){
-            $this->new_school_added = true;
-        } else {
-            $this->new_school_added = false;
-        }
     }
 
-    public function update(){
+    public function update($name, $id){
 
+        $sql = 'UPDATE schools SET name=? WHERE id=?';
+        $query = $this->db->prepare($sql);
+        $query->execute([$name, $id]);
     }
 
     protected function validate() {

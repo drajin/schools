@@ -14,10 +14,7 @@
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
-            <?php if($school->new_school_added): ?>
-                <div class="alert alert-success">School created!</div>
-            <?php endif ?>
-            <form action="edit.php" method="post">
+            <form action="update.php?id=<?= $school->id ?>" method="post">
                 <input type="text" name="name" value="<?= $school->name ?>" class="form-control" placeholder="School Name"><br>
                 <button type="submit" name="post_sub_btn" class="form-control btn btn-primary">Update</button>
             </form>

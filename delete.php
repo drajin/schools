@@ -14,3 +14,4 @@ require('bootstrap.php');
         $_SESSION['msg_type'] = 'danger';
         redirect_to('index.php');
     }
+
