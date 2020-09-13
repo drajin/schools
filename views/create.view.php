@@ -9,17 +9,17 @@
 <body>
 <div class="container">
 
-    <h4>Edit School</h4>
+    <h4>Add New School</h4>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
-            <?php if($school->new_school_added): ?>
-                <div class="alert alert-success">School created!</div>
-            <?php endif ?>
-            <form action="edit.php" method="post">
-                <input type="text" name="name" value="<?= $school->name ?>" class="form-control" placeholder="School Name"><br>
-                <button type="submit" name="post_sub_btn" class="form-control btn btn-primary">Update</button>
+<!--            --><?php //if($schools->new_school_added): ?>
+<!--                <div class="alert alert-success">School created!</div>-->
+<!--            --><?php //endif ?>
+            <form action="create.php" method="post">
+                <input type="text" name="name" class="form-control" placeholder="School Name"><br>
+                <button type="submit" name="post_sub_btn" class="form-control btn btn-primary">Add</button>
             </form>
         </div>
     </div>

@@ -7,6 +7,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </head>
 <body>
+<?php include('massages.php');  ?>
 <div class="container">
 <table class="table">
     <thead class="thead-dark">
@@ -32,7 +33,9 @@
 
 
     </tbody>
+
 </table>
+    <a href="create.php">Add a new School Board</a>
 </div>
 
 

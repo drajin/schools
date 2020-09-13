@@ -7,21 +7,28 @@ class School extends DatabaseObject {
     static protected $db_columns = ['id', 'name'];
 
 
-    public function __construct($args=[]) {
-        $this->name = $args['name'] ?? '';
-
-
-        // Caution: allows private/protected properties to be set
-        // foreach($args as $k => $v) {
-        //   if(property_exists($this, $k)) {
-        //     $this->$k = $v;
-        //   }
-        // }
-    }
-
-
     public $id;
     public $name;
+    public $new_school_added = NULL;
+
+    public function create(){
+
+        $name = $_POST['name'];
+
+        $sql = 'INSERT INTO schools VALUE(NULL, ?)';
+        $query = $this->db->prepare($sql);
+        $query->execute([$name]);
+
+        if($query){
+            $this->new_school_added = true;
+        } else {
+            $this->new_school_added = false;
+        }
+    }
+
+    public function update(){
+
+    }
 
     protected function validate() {
         $this->errors = [];
