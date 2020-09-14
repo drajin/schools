@@ -1,6 +1,6 @@
 <?php
 
-require('bootstrap.php');
+require('../../config/bootstrap.php');
 
 //    if(isset($_GET['id'])){
 //        $id = $_GET['id'];

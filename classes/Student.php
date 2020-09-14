@@ -1,9 +1,9 @@
 <?php
 
-class School extends DatabaseObject {
+class Student extends DatabaseObject {
 
 
-    static protected $table_name = 'schools';
+    static protected $table_name = 'students';
     static protected $db_columns = ['id', 'name'];
 
 
@@ -17,14 +17,14 @@ class School extends DatabaseObject {
         $this->validate();
         if(!empty($this->errors)) { return false;}
 
-        $sql = 'INSERT INTO schools VALUE(NULL, ?)';
+        $sql = 'INSERT INTO students VALUE(NULL, ?)';
         $query = $this->db->prepare($sql);
         return $query->execute([$this->name]);
     }
 
     public function update($name, $id){
 
-        $sql = 'UPDATE schools SET name=? WHERE id=?';
+        $sql = 'UPDATE students SET name=? WHERE id=?';
         $query = $this->db->prepare($sql);
         $query->execute([$name, $id]);
     }
