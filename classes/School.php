@@ -24,7 +24,7 @@ class School extends DatabaseObject {
 
     public function update($name, $id){
 
-        $sql = 'UPDATE schools SET name=? WHERE id=?';
+        $sql = 'UPDATE schools SET school_name=? WHERE id=?';
         $query = $this->db->prepare($sql);
         $query->execute([$name, $id]);
     }

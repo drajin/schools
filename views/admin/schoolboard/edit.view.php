@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-8 offset-2">
             <form action="edit.php?id=<?= $school->id ?>" method="post">
-                <input type="text" name="name" value="<?= $school->name ?>" class="form-control" placeholder="School Name"><br>
+                <input type="text" name="name" value="<?= $school->school_name ?>" class="form-control" placeholder="School Name"><br>
                 <button type="submit" name="post_sub_btn" class="form-control btn btn-primary">Update</button>
             </form>
         </div>

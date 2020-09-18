@@ -25,16 +25,18 @@
         </tr>
         </thead>
         <tbody>
+
         <?php foreach($students as $student): ?>
             <tr>
                 <th><?= $student->name ?></th>
-                <?php if($student->school): //relaciona baza na redu ?>
-                    <td><?= $student->school->school_board ?></td>
+                <?php if($student->school_id != NULL): //relaciona baza na redu ?>
+                    <?php  ?>
+                    <td><?= $student->school_name; ?></td>
                 <?php else : ?>
                     <td>--</td>
                 <?php endif; ?>
-                <td><a href="/admin/students/{{$student->id}}/show">View</a></td>
-                <td><a href="/admin/students/{{$student->id}}/edit/">Edit Personal Information</a></td>
+                <td><a href="show.php?id=<?= $student->id ?>">View</a></td>
+                <td><a href="edit.php?id=<?= $student->id ?>">Edit Personal Information</a></td>
                 <td><a href="/admin/students/{{$student->id}}/grades/">Edit Grades</a></td>
                 <td><a href="/admin/students/{{$student->id}}/destroy">Delete</a></td>
             </tr>

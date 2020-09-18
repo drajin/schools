@@ -22,11 +22,11 @@ class Student extends DatabaseObject {
         return $query->execute([$this->name]);
     }
 
-    public function update($name, $id){
+    public function update($name, $school_id, $id){
 
-        $sql = 'UPDATE students SET name=? WHERE id=?';
+        $sql = 'UPDATE students SET name=?, school_id=? WHERE id=?';
         $query = $this->db->prepare($sql);
-        $query->execute([$name, $id]);
+        $query->execute([$name, $school_id, $id]);
     }
 
     protected function validate() {
@@ -35,6 +35,25 @@ class Student extends DatabaseObject {
             $this->errors[] = "Name cannot be blank.";
         }
         return $this->errors;
+
+    }
+
+    public function find_all_students() {
+        $sql = 'SELECT students.id, students.name, students.school_id, schools.school_name FROM students ';
+        $sql .= ' INNER JOIN schools ON students.school_id = schools.id;';
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function find_student_by_id($id)
+    {
+        $sql = "SELECT students.id, students.name, students.school_id, schools.school_name  FROM  students ";
+        $sql .= " INNER JOIN schools ON students.school_id = schools.id WHERE students.id = ?";
+        $query = $this->db->prepare($sql);
+        $query->execute([$id]);
+        return $query->fetch(PDO::FETCH_OBJ);
+
 
     }
 

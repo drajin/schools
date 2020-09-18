@@ -2,8 +2,6 @@
 
 require('../../config/bootstrap.php');
 
-
-
-$students = $query->select_all('students');
+$students = $students->find_all_students();
 
 require('../../views/admin/students/index.view.php');

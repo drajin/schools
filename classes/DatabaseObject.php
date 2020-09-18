@@ -26,10 +26,6 @@ class DatabaseObject {
         return $query->fetch(PDO::FETCH_OBJ);
 
 
-//        $stmt = $pdo->prepare('SELECT * FROM {$table} WHERE id = ?');
-//        $stmt->execute([$id]);
-//        return $stmt->fetch(PDO::FETCH_ASSOC);
-
     }
 
     public  function delete($table, $id)

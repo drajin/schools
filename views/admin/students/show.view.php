@@ -9,33 +9,45 @@
 <body>
 <?php include('massages.php');  ?>
 <div class="container">
-<table class="table">
-    <thead class="thead-dark">
+
+    <br>
+
+
+
+<a class="back-link" href="index.php">&laquo; Back to List</a>
+<br>
+<br>
+<div class="student show">
+    <div class="attributes">
+        <dl>
+            <dt>Name</dt>
+            <dd><?= $student->name ?></dd>
+        </dl>
+        <dl>
+            <dt>School board:</dt>
+            <dd><?= $student->school_name ?></dd>
+        </dl>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
     <tr>
-
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-
+        <th scope="col">Subject</th>
+        <th scope="col">Grade</th>
     </tr>
     </thead>
     <tbody>
-
-    <?php foreach($schools as $school): ?>
-        <tr>
-            <th scope="row"><?= $school->id; ?></th>
-            <th scope="col"><?= $school->school_name; ?></th>
-            <td scope="col"><a href="edit.php?id=<?= $school->id ?>">Edit</a></td>
-            <td scope="col"><a href="delete.php?id=<?= $school->id ?>">Delete</a></td>
-        </tr>
-    <?php endforeach; ?>
-
+    <?php ?>
+    <tr>
+        <th scope="row"></th>
+        <td scope="row"></td>
+    </tr>
 
     </tbody>
-
 </table>
-    <a href="create.php">Add a new School Board</a>
+
+
 </div>
 
 
