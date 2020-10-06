@@ -37,15 +37,15 @@
                 <?php endif; ?>
                 <td><a href="show.php?id=<?= $student->id ?>">View</a></td>
                 <td><a href="edit.php?id=<?= $student->id ?>">Edit Personal Information</a></td>
-                <td><a href="/admin/students/{{$student->id}}/grades/">Edit Grades</a></td>
-                <td><a href="/admin/students/{{$student->id}}/destroy">Delete</a></td>
+                <td><a href="grades.php?id=<?= $student->id ?>">Edit Grades</a></td>
+                <td><a href="delete.php?id=<?= $student->id ?>">Delete</a></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
 
     <br>
-    <a class="action" href="/admin/students/create">Add a new Student</a>
+    <a class="action" href="create.php">Add a new Student</a>
 
 </div>
 

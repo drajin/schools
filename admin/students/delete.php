@@ -9,9 +9,9 @@ require('../../config/bootstrap.php');
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $schools->delete('schools', $id);
-        $_SESSION['message'] = 'School deleted!';
+        $students->delete('students', $id);
+        $_SESSION['message'] = 'Student deleted!';
         $_SESSION['msg_type'] = 'danger';
-        redirect_to('index.php');
+        redirect_to('/phpskolica/admin/students/');
     }
 

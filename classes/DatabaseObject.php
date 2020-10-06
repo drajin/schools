@@ -32,7 +32,7 @@ class DatabaseObject {
     {
         $sql = "DELETE FROM $table WHERE id = ?";
         $query = $this->db->prepare($sql);
-        $query->execute([$id]);
+        return $query->execute([$id]);
     }
 
     public function save($data)

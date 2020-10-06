@@ -38,12 +38,16 @@
     </tr>
     </thead>
     <tbody>
-    <?php ?>
+    <?php if( $grades == false){?>
+        <p class="font-weight-bold">No grades yet</p>
+    <?php } else { ?>
+    <?php foreach($grades as $grade): ?>
     <tr>
-        <th scope="row"></th>
-        <td scope="row"></td>
+        <th scope="row"><?= $grade->subject ?></th>
+        <td scope="row"><?= $grade->grade ?></td>
     </tr>
-
+    <?php endforeach; ?>
+    <?php } ?>
     </tbody>
 </table>
 
