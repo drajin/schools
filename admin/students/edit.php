@@ -8,6 +8,8 @@ if(isset($_GET['id'])){
     redirect_to('index.php');
 }
 
+
+
 $schools = $schools->select_all('schools');
 
 $student = $students->find_student_by_id($id);
@@ -21,6 +23,7 @@ if(isset($_POST['post_sub_btn'])){
     $_SESSION['msg_type'] = 'success';
     redirect_to('index.php');
 }
+
 
 // Korisno
 //if($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -47,5 +50,44 @@ if(isset($_POST['post_sub_btn'])){
 
 
 
+?>
 
-require('../../views/admin/students/edit.view.php');
+<?php $page_title = 'Edit Student'; ?>
+
+
+<?php include('../includes/admin_header.php');  ?>
+
+
+    <form method="POST" action="">
+
+        <a href="index.php">&laquo; Back to List</a>
+        <h3>Personal Information:</h3>
+        <div class="form-group row">
+            <label for="Name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="Name" name="name" value="<?= $student->name ?>">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="school_board" class="col-sm-2 col-form-label">School Board:</label>
+            <div class="col-sm-10">
+                <select class="form-control custom-select " name="school_id">
+                    <?php foreach($schools as $school): ?>
+                        <option value="<?= $school->id ?>"
+                            <?php if($student->school_id == $school->id) {echo "selected";} ?>
+                        ><?= $school->school_name ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+
+
+        <button type="submit" name="post_sub_btn" class="btn btn-primary my-1" value="edit">Update</button>
+
+    </form>
+
+
+
+    <?php include('../includes/admin_footer.php');  ?>
+

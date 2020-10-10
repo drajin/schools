@@ -31,8 +31,26 @@ if(isset($_POST['post_sub_btn'])){
     redirect_to('index.php');
 }
 
+?>
+
+<?php $page_title = 'Edit School Board'; ?>
 
 
+<?php include('../includes/admin_header.php');  ?>
+
+    <h4>Edit School</h4>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form action="edit.php?id=<?= $school->id ?>" method="post">
+                <input type="text" name="name" value="<?= $school->school_name ?>" class="form-control" placeholder="School Name"><br>
+                <button type="submit" name="post_sub_btn" class="form-control btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 
 
-require('../../views/admin/schoolboard/edit.view.php');
+<?php include('../includes/admin_footer.php');  ?>

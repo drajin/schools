@@ -8,7 +8,6 @@
 </head>
 <body>
 <div class="container">
-
     <form method="POST" action="">
 
         <a href="index.php">&laquo; Back to List</a>
@@ -16,7 +15,7 @@
         <div class="form-group row">
             <label for="Name" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="Name" name="name" value=<?= $student->name ?>>
+                <input type="text" class="form-control" id="Name" name="name" value="<?= $student->name ?>">
             </div>
         </div>
 

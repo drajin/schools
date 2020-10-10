@@ -4,12 +4,12 @@ class School extends DatabaseObject {
 
 
     static protected $table_name = 'schools';
-    static protected $db_columns = ['id', 'name'];
-
+    static protected $db_columns = ['id', 'school_name'];
 
     public $id;
     public $name;
     public $errors = [];
+
 
     public function create(){
 
@@ -23,6 +23,9 @@ class School extends DatabaseObject {
     }
 
     public function update($name, $id){
+        $this->name = $name;
+        $this->validate();
+        if(!empty($this->errors)) { return false;}
 
         $sql = 'UPDATE schools SET school_name=? WHERE id=?';
         $query = $this->db->prepare($sql);
