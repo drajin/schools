@@ -2,11 +2,9 @@
 
 require('../../config/bootstrap.php');
 
+$schools = $query->select_all('schools');
 
-
-    $schools = $query->select_all('schools');
-
-    ?>
+?>
 
 <?php $page_title = 'School Boards'; ?>
 
@@ -15,6 +13,7 @@ require('../../config/bootstrap.php');
 
 <?php include('../includes/massages.php');  ?>
 
+<br>
 
 <table class="table">
     <thead class="thead-dark">

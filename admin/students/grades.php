@@ -25,7 +25,6 @@ if (isset($_POST['post_sub_btn'])) {
         redirect_to('/phpskolica/admin/students/grades.php?id='. $student_id . '');
     } else {
         $result = $grades->create();
-
         if($result === true) {
             $_SESSION['message'] = 'Grade Added!';
             $_SESSION['msg_type'] = 'success';
@@ -63,7 +62,7 @@ if (isset($_POST['post_sub_btn'])) {
     </div>
 
     <h3>Grades:</h3>
-
+<?= display_errors($grades->errors) ?>
     <?php if( $students_grades == false){?>
         No grades yet
     <?php } else { ?>

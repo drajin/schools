@@ -4,7 +4,7 @@ class Grade extends DatabaseObject {
 
     static protected $table_name = 'grades';
     static protected $db_columns = ['id', 'student_id', 'subject', 'grade'];
-    const GRADES = [ '-', 6, 7, 8, 9, 10];
+    const GRADES = [ '-',5, 6, 7, 8, 9, 10];
 
     public $id;
     public $student_id;
@@ -17,8 +17,8 @@ class Grade extends DatabaseObject {
         $this->subject = $_POST['subject'];
         $this->grade = $_POST['grade'];
         $this->student_id = $_GET['id'];
-//        $this->validate();
-//        if(!empty($this->errors)) { return false;}
+        $this->validate();
+        if(!empty($this->errors)) { return false;}
 
         $sql = 'INSERT INTO grades VALUE(NULL, ?, ?, ?)';
         $query = $this->db->prepare($sql);
@@ -30,6 +30,18 @@ class Grade extends DatabaseObject {
         $query = $this->db->prepare($sql);
         $query->execute([$student_id]);
         return $query->fetchAll(PDO::FETCH_OBJ);
+
+    }
+
+    protected function validate() {
+        $this->errors = [];
+        if(empty($this->subject)) {
+            $this->errors[] = "Subject can't be blank.";
+        }
+        if(($this->grade == 0)) {
+            $this->errors[] = "Please select the grade.";
+        }
+        return $this->errors;
 
     }
 

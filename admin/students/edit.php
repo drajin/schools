@@ -18,10 +18,15 @@ if(isset($_POST['post_sub_btn'])){
     $id = $_GET['id'];
     $name = $_POST['name'];
     $school_id = $_POST['school_id'];
-    $students->update($name, $school_id, $id);
-    $_SESSION['message'] = 'Student updejted!';
-    $_SESSION['msg_type'] = 'success';
-    redirect_to('index.php');
+    $result = $students->update($name, $school_id, $id);
+
+    if($result === true) {
+        $_SESSION['message'] = 'Student updejted!';
+        $_SESSION['msg_type'] = 'success';
+        redirect_to('index.php');
+    } else {
+        //show errors
+    }
 }
 
 
@@ -57,7 +62,7 @@ if(isset($_POST['post_sub_btn'])){
 
 <?php include('../includes/admin_header.php');  ?>
 
-
+<?= display_errors($students->errors) ?>
     <form method="POST" action="">
 
         <a href="index.php">&laquo; Back to List</a>

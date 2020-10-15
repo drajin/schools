@@ -29,7 +29,7 @@ class School extends DatabaseObject {
 
         $sql = 'UPDATE schools SET school_name=? WHERE id=?';
         $query = $this->db->prepare($sql);
-        $query->execute([$name, $id]);
+        return $query->execute([$name, $id]);
     }
 
     protected function validate() {
@@ -40,6 +40,18 @@ class School extends DatabaseObject {
         return $this->errors;
 
     }
+
+    public  function delete($table, $id)
+    {
+
+        $sql = "DELETE FROM $table WHERE id = ?";
+        $query = $this->db->prepare($sql);
+        return $query->execute([$id]);
+    }
+
+
+
+
 
 }
 
