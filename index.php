@@ -22,7 +22,8 @@ $all_schools = $schools->select_all('schools');
 
     <ul>
         <?php foreach($all_schools as $school): ?>
-        <li><a href='school_board.php?id=<?php echo $school->id ?>'><?= $school->school_name;?></a></li>
+        <li><a href="#"></a></li>
+<!--        <li><a href='school_board.php?id=--><?php //echo $school->id ?><!--'>--><?//= $school->school_name;?><!--</a></li>-->
         <ul>
             <?php foreach($all_students as $student): ?>
             <?php if($student->school_id == $school->id): ?>
